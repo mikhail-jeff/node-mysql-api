@@ -3,12 +3,7 @@ const Employee = require("../models").employee;
 
 const router = express.Router();
 
-// welcome route
-router.get("/", (request, response) => {
-	response.status(200).json({ message: "Welcome to Express Server" });
-});
-
-// *** ADD employee API
+// *** ADD employee enpoint
 router.post("/", async (request, response) => {
 	const { name, email, gender, mobile } = request.body;
 
@@ -19,9 +14,7 @@ router.post("/", async (request, response) => {
 	}
 
 	const exists = await Employee.findOne({
-		where: {
-			email,
-		},
+		where: { email },
 	});
 
 	if (exists) {
@@ -43,8 +36,23 @@ router.post("/", async (request, response) => {
 			employee,
 		});
 	} catch (error) {
-		console.log(error);
 		response.status(400).json({
+			message: "Failed to execute query",
+		});
+	}
+});
+
+// *** GET ALL employee endpoint
+router.get("/", async (request, response) => {
+	try {
+		const employees = await Employee.findAll();
+
+		response.status(200).json({
+			message: "Employees found",
+			employees,
+		});
+	} catch (error) {
+		response.status(404).json({
 			message: "Failed to execute query",
 		});
 	}
