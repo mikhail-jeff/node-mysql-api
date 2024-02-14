@@ -140,4 +140,36 @@ router.put("/:id", async (request, response) => {
 	}
 });
 
+// *** DELETE employee endpoint
+router.delete("/:id", async (request, response) => {
+	const { id } = request.params;
+
+	try {
+		// Check if the employee exists
+		const employeeExists = await Employee.findOne({
+			where: { id },
+		});
+
+		if (!employeeExists) {
+			return response.status(404).json({
+				message: "Employee not found",
+			});
+		}
+
+		await Employee.destroy({
+			where: { id },
+		});
+
+		// Send success response after successful deletion
+		return response.status(200).json({
+			message: "Employee deleted successfully",
+		});
+	} catch (error) {
+		console.log(error);
+		response.status(500).json({
+			message: "Failed to execute query",
+		});
+	}
+});
+
 module.exports = router;
