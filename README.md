@@ -10,4 +10,14 @@ API LIST - CRUD
 - UPDATE employee API
 - DELETE employee API
 
-execute sequelize: npx sequelize
+# execute sequelize
+
+npx sequelize
+
+# create model
+
+npx sequelize model:create --name Employee --attributes name:string,email:string,gender:enum,mobile:string
+
+# run migration and create table
+
+npx sequelize db:migrate

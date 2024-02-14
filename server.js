@@ -1,8 +1,7 @@
-import express from "express";
-import chalk from "chalk";
-import { config } from "dotenv";
-import morgan from "morgan";
-import employeeRoutes from "./routes/employeeRoutes.js";
+const express = require("express");
+const { config } = require("dotenv");
+const morgan = require("morgan");
+const employeeRoutes = require("./routes/employeeRoutes");
 
 config();
 
@@ -18,5 +17,5 @@ app.use(morgan("dev"));
 app.use("/api/v1", employeeRoutes);
 
 app.listen(PORT, () => {
-	console.log(chalk.magentaBright.underline(`Server running on http://localhost:${PORT}`));
+	console.log(`Server running on http://localhost:${PORT}`);
 });

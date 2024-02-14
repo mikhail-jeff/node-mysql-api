@@ -1,10 +1,10 @@
-import { Router } from "express";
+const express = require("express");
 
-const router = Router();
+const router = express.Router();
 
 // welcome route
 router.get("/", (request, response) => {
 	response.status(200).json({ message: "Welcome to Express Server" });
 });
 
-export default router;
+module.exports = router;
