@@ -119,13 +119,12 @@ router.put("/:id", async (request, response) => {
 
 		// Check the number of rows affected to confirm if the update was successful
 		if (updatedEmployee[0] === 1) {
-			const updatedEmployeeData = await Employee.findOne({
+			await Employee.findOne({
 				where: { id },
 			});
 
 			return response.status(200).json({
 				message: "Employee updated successfully",
-				employee: updatedEmployeeData,
 			});
 		} else {
 			return response.status(500).json({
