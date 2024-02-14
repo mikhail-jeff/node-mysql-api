@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
 // routes
-app.use("/api/v1", employeeRoutes);
+app.use("/api/employees", employeeRoutes);
 
 app.listen(PORT, () => {
 	console.log(`Server running on http://localhost:${PORT}`);
