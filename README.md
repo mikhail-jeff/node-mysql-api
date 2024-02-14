@@ -1,4 +1,4 @@
-Node JS CRUD REST APIs with Express, Sequelize ORM and MySQL
+Node JS CRUD REST API with Express, Sequelize ORM and MySQL
 
 Database Table Setup (employees - id, name, email, gender, mobile)
 
@@ -10,4 +10,4 @@ API LIST - CRUD
 - UPDATE employee API
 - DELETE employee API
 
-# execute sequelize: npx sequelize
+execute sequelize: npx sequelize

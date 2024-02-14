@@ -1,6 +1,7 @@
 {
 	"name": "mysql-api",
 	"version": "1.0.0",
+	"type": "module",
 	"description": "Node JS CRUD REST APIs with Express, Sequelize ORM and MySQL",
 	"main": "server.js",
 	"scripts": {
